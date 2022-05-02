@@ -1,0 +1,69 @@
+body {
+    font-family: 'Advent Pro', sans-serif;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    z-index: 10;
+    background-color: #f2f2f2;
+}
+
+#root {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto; // margin 0, alul-felül ne adjon hozzá plusz margint, az auto pedig a jobb-bal oldalon egyaránt ad margint, ha a responsive nézetben a megadott 1200 px feletti az érték
+
+    section {
+        position: relative;
+        min-height: 100vh;
+        padding: 80px 20px 0;
+        background-color: #f2f2f2;
+        border-bottom: 4px solid #fff;
+
+        h2 {
+            color: rgb(13, 75, 75);
+            span {
+                transition: color 1s; // lassítja a változás idejét, átmenetét
+            }
+
+            //media breakpoint responsive nézet esetén, x-y width-ig egy bizonyos px méret legyen a width
+            @media (max-width: 400px){
+                font-size: 25px;
+
+                span {
+                    color: rgb(185, 118, 29);
+                }
+            }
+            @media (min-width: 401px) and (max-width: 800px){
+                font-size: 50px;
+
+                span {
+                    color: rgb(230, 66, 16);
+                }
+            }
+            @media (min-width: 801px){
+                font-size: 100px;    
+            }
+            // jelenleg annyiféle méretezés van, hogy nem az eszközszélesség határozza meg ezeket a tól-ig-eket, hanem az elem határozza meg
+        }
+
+        button {
+            position: absolute;
+            width: calc(100% - 80px); // 40 px körben a margin, emiatt 100% - 2x40px (jobb-bal oldal), ha csökken a nézet width, akkor elkezdi középre rendezni
+            max-width: 400px;
+            height: 60px;
+            margin: 40px;
+            right: 0;
+            bottom: 0;
+
+            color: rgb(131, 227, 247);
+            background-color: rgb(14, 97, 129);
+        }
+    }
+}
+
+footer {
+    min-height: 400px;
+}
